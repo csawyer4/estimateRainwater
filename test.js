@@ -35,6 +35,7 @@ var measureControl = L.control.measure({
   decPoint: '.',
   thousandsSep: ','
 });
+
 measureControl.addTo(mymap);
 
 // L.MakiMarkers.accessToken = "pk.eyJ1IjoiY3Nhd3llcjQiLCJhIjoiY2syc2g2bnlzMGtyeDNubW55bHRzNnkzOSJ9.WZ63B0C4v437JrMyODN-6g";
@@ -159,17 +160,30 @@ L.geoJSON(rainData, {
 
 var points = turf.featureCollection(rainData.features);
 
-mymap.on('click', function(e) {
-  var coord = e.latlng;
+// mymap.on('click', function() {
+//   var coord = mymap.getCenter();
+//   var lat = coord.lat;
+//   var lng = coord.lng;
+//   var targetPoint = turf.point([lng, lat]);
+//   var nearest = turf.nearestPoint(targetPoint, points);
+//   var nearestJson = JSON.stringify(nearest);
+//
+// console.log(nearestJson);
+// console.log(lat,lng);
+// });
+
+mymap.on('measurefinish', function(e) {
+  console.log(Math.round(e.area * 10.764) + " square feet");
+  var coord = mymap.getCenter();
   var lat = coord.lat;
   var lng = coord.lng;
   var targetPoint = turf.point([lng, lat]);
   var nearest = turf.nearestPoint(targetPoint, points);
-    alert(JSON.stringify(nearest));
+  var nearestJson = JSON.stringify(nearest);
+
+console.log(nearestJson);
+console.log(lat,lng);
 });
-
-
-
 
 
 
