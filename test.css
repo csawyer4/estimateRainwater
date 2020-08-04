@@ -1,4 +1,24 @@
+html {
+  background-color: #b6babf;
+}
 #mapid {
   height: 80vh;
-  width: 100vw;
+  width: 95vw;
+  margin: auto;
+  border-style: solid;
+  border-width: thick;
+  border-color: #87a8b7;
+}
+
+#rainResult {
+  height: 15vh;
+  width:95vw;
+  margin: auto;
+  text-align: center;
+}
+
+h1,h2 {
+  font-family: monospace;
+  text-align: center;
+  color: #0D445F;
 }
