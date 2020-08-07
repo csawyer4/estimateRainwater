@@ -1,36 +1,103 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+Special Thanks to HTML5 UP for the use of the Massively responsive template!
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+-->
 <html>
 	<head>
+		<title>Rainwater</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<link rel="stylesheet" href="test.css" />
-		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-	   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-	   crossorigin=""/>
-		 <link rel="stylesheet" href="leaflet_measure.css">
-
-	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
- integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
- crossorigin=""></script>
-
- 	<!-- <script src="leaflet_measure.js"></script>
-	<script src="src\leaflet-measure.js"></script> -->
-	<script src="https://cdn.jsdelivr.net/npm/leaflet-measure@3.1.0/dist/leaflet-measure.min.js"></script>
-	<!-- <script src="Leaflet.MakiMarkers.js"></script> -->
-	<script src="jquery-3.4.1.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>
- 	<title>Rainwater Estimates</title>
 	</head>
-	<body>
-		<h1>Estimating Yearly Rainwater Collection</h1>
-		<div id="mapid"></div>
+	<body class="is-preload">
 
-		<h2>You Could Collect How Many Gallons of Rainwater?</h2>
-		<div id="rainResult"></div>
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
 
-			<script src="test.js"></script>
+				<!-- Intro -->
+					<div id="intro">
+						<h1>Rainwater Collection</h1>
+						<p>What is Rainwater Collection? <br>Why Should I Collect Rainwater?</p>
+						<ul class="actions">
+							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+						</ul>
+					</div>
 
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Rainwater Collection</a>
+					</header>
 
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">What is it?</a></li>
+							<li><a href="generic.html">Collection Estimate</a></li>
+						</ul>
+					</nav>
 
-	<footer><a target="_blank" href="https://icons8.com/icons/set/men-age-group-4">Man icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a><br><a target="_blank" href="https://icons8.com/icons/set/water">Water icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></footer>
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Featured Post -->
+							<article class="post featured">
+								<header class="major">
+									<span class="date">Rainwater Collection</span>
+									<h1 class="schemeHead">What Exactly is<br>Rainwater Collection</h1>
+									<p>Rainwater collection, or rainwater catchment, is a type of green infrastructure. The water that falls onto your roof and goes down the down spout is collected, or caught, in a barrel. A hose is connected to the bottom of the barrel for ease in watering your garden, plants, or just your lawn. </p>
+								</header>
+								<img src="images/rainbarrel.png" alt="A rain barrel used for rainwater catchment." />
+								<p><br>Collecting rainwater is important, especially in urban areas. These are areas that have many buildings, including homes, and lots of roads. Rainwater lands on these surfaces and have nowhere to go but across them, picing up chemicals and debris along the way. This surface runoff then starts puddling, creating areas of flooding, and can even overwhelm stormwater drains and lead to a combined sewage overflow. The surface runoff and sewage are then flow right into our rivers and water bodies, reaking havoc on aquatic species like salmon.</p>
+								<p class="important">Why collect rainwater then? Know you're making a difference in your community and your environment, and save water and money while you're at it!</p>
+							</article>
+
+						<!-- Posts -->
+							<section class="posts">
+								<article>
+									<header>
+										<span class="date">Community Benefits</span>
+										<h2><a href="">How Collecting Rainwater <br>Benefits the Community</a></h2>
+									</header>
+									<a href="#" class="image fit"><img src="images/communityWater.jpg" alt="lake with trees and mountains in background" /></a>
+									<p>Collecting rainwater reduces urban flooding. This means less ecological damage and less structural damage. Additionally, you can use that rainwater to water your garden, plants, or lawn, saving you money. Working with the environment has been shown to make people happier and healthier. Start collecting rainwater today!</p>
+									<ul class="actions special">
+										<li><a href="#" class="button">Full Story</a></li>
+									</ul>
+								</article>
+								<article>
+									<header>
+										<span class="date">Estimate Tool</span>
+										<h2><a href="generic.html">How Much Water <br>Can You Save</a></h2>
+									</header>
+									<a href="generic.html" class="image fit"><img src="images/savewater.jpg" alt="" /></a>
+									<p>Try out my rainwater collection tool that estimates how many gallons you could save in a year. Draw a polygon around your roof and Voila! the gallons are displayed below the map. This tool will ask to use your location for the ease of finding your home and getting the local precipitation.</p>
+									<ul class="actions special">
+										<li><a href="generic.html" class="button">Full Story</a></li>
+									</ul>
+								</article>
+							</section>
+
+					</div>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
 	</body>
-
 </html>

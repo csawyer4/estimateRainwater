@@ -10,14 +10,13 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 //Geolocating the user for assistance in locating roof
 function onLocationFound(e) {
-    var radius = e.accuracy; //this defines a variable radius as the accuracy value returned by the locate method divided by 2. It is divided by 2 because the accuracy value is the sum of the estimated accuracy of the latitude plus the estimated accuracy of the longitude. The unit is meters.
+    var radius = e.accuracy;
     var locIcon = L.icon({
       iconUrl: 'icons8-man-50.png',
       iconAnchor: [25, 0]
     });
-    L.marker(e.latlng, {icon:locIcon}).addTo(mymap)  //this adds a marker at the lat and long returned by the locate function.
-      .bindPopup("You are within " + Math.round(radius * 3.28084) + " feet from this point").openPopup(); //this binds a popup to the marker. The text of the popup is defined here as well. Note that we multiply the radius by 3.28084 to convert the radius from meters to feet and that we use Math.round to round the conversion to the nearest whole number.
-
+    L.marker(e.latlng, {icon:locIcon}).addTo(mymap)
+      .bindPopup("You are within " + Math.round(radius * 3.28084) + " feet from this point").openPopup();
 }
 
 mymap.on('locationfound', onLocationFound);
@@ -42,25 +41,6 @@ var measureControl = L.control.measure({
 
 measureControl.addTo(mymap);
 
-//MakiMarkers for rain stations, bright blue water symbol
-// L.MakiMarkers.accessToken = "pk.eyJ1IjoiY3Nhd3llcjQiLCJhIjoiY2syc2g2bnlzMGtyeDNubW55bHRzNnkzOSJ9.WZ63B0C4v437JrMyODN-6g";
-//
-//   $.getJSON("KingRainPrecip.json",function(rdata){
-//       var mark = L.MakiMarkers.icon({
-//         icon: "water",
-//         color: "#00cccc",
-//         size: "m"
-//       });
-//   L.geoJson(rdata , {
-//     pointToLayer: function (feature, latlng){
-//       var marker = L.marker(latlng,{icon: mark});
-//       marker.bindPopup("Average yearly precipitation at Rain Gauge Station " + feature.properties.SITE_CODE + " is " + feature.properties.Average_20 + " inches OR " + (feature.properties.Average_20 / 12) + " feet.");
-//       return marker;
-//     }
-//   }).addTo(mymap);
-//
-//
-// });
 
 //Json data of King County Rain Gauge Stations
 var rainData = {"type":"FeatureCollection", "features": [
@@ -174,20 +154,7 @@ L.geoJSON(rainData,{
 //Rain gauges connected to the turf.nearestPoint function (global var so can access event function)
 var points = turf.featureCollection(rainData.features);
 
-//Old code used to get nearestPoint, don't need anymore
-// mymap.on('click', function() {
-//   var coord = mymap.getCenter();
-//   var lat = coord.lat;
-//   var lng = coord.lng;
-//   var targetPoint = turf.point([lng, lat]);
-//   var nearest = turf.nearestPoint(targetPoint, points);
-//   var nearestJson = JSON.stringify(nearest);
-//
-// console.log(nearestJson);
-// console.log(lat,lng);
-// });
-
-//When the user finishes the polygon measure the area will go to the console, the center of the map coordinates will become the target point in the nearestPoint argument and returns a json of the nearest rain gauge station which includes the precipitation(Average_20)
+//When measurement is finished area is multipled by nearestPoint precip, converted to gallons, formated, and returned in div below map.
 mymap.on('measurefinish', function(e) {
   var roofArea = Math.round(e.area * 10.764);
   var coord = mymap.getCenter();
@@ -196,11 +163,11 @@ mymap.on('measurefinish', function(e) {
   var targetPoint = turf.point([lng, lat]);
   var nearest = turf.nearestPoint(targetPoint, points);
   var nearestJson = (nearest.properties.Average_20) / 12;
-
-  // var estRain = (nearestJson * roofArea * 7.48051948);
-  document.getElementById("rainResult").innerHTML = (Math.round(nearestJson * roofArea * 7.48051948)) + " Gallons of Rainwater in one year";
-  // console.log(estRain);
-  // console.log(Math.round((nearestJson * roofArea) * 7.48051948));
+  var estRain = (Math.round(nearestJson * roofArea * 7.48051948));
+  function formatNumber(estRain) {
+  return estRain.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+};
+  document.getElementById("rainResult").innerHTML = formatNumber(estRain) + " Gallons of Rainwater in one year";
 });
 
 

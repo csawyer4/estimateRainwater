@@ -1,24 +1,39 @@
-html {
-  background-color: #b6babf;
-}
+
 #mapid {
   height: 80vh;
-  width: 95vw;
-  margin: auto;
+  width: 58vw;
   border-style: solid;
   border-width: thick;
   border-color: #87a8b7;
+  padding-bottom: 20px;
 }
 
 #rainResult {
   height: 15vh;
-  width:95vw;
-  margin: auto;
+  width: 58vw;
   text-align: center;
 }
 
-h1,h2 {
+.schemeHead {
+  color: #0d445f;
+}
+
+.gallonresult, .important {
+  text-align: center;
+}
+/* #maptext {
+  text-align: center;
+} */
+
+
+/* h1,h2 {
   font-family: monospace;
   text-align: center;
   color: #0D445F;
 }
+
+#rainResult {
+  font-size: 1.2em;
+  color: #0f5d82;
+  font-family: monospace;
+} */
